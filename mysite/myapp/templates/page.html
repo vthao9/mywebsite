@@ -1,0 +1,7 @@
+{% include "base.html" %}
+
+{% block content %}
+<p>You're on Page {{ page }}</p>
+<a class="button" href="/page/{{ next }}">Next Page</a>
+<a class="button" href="/page/{{ back }}">Back Page</a>
+{% endblock %}
