@@ -10,12 +10,6 @@
     <link rel="stylesheet" href="{% static "css/app.css" %}">
   </head>
   <body>
-    {{ body }}
-    <ul>
-    {% for item in item_list %}
-      <li>The item is: {{ item }}</li>
-    {% endfor %}
-    </ul>
     {% block content %}
     {% endblock %}
     <script src="{% static "js/vendor/jquery.js" %}"></script>
