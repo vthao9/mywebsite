@@ -28,7 +28,7 @@ def index(request):
     # for item in i_list:
     #     n_list += [item.suggestion_field + "2"]
     context = {
-    "body":"CINS465 Hello World",
+    "body":"Gallery",
     "title":"Title Hello",
     "item_list":i_list,#n_list,
     "form":form_instance
@@ -41,7 +41,7 @@ def page_view(request, page):
     for i in range(20*(page+1)):
         i_list += ["Item "+str(i)]
     context = {
-    "body":"CINS465 Hello World",
+    "body":"Gallery",
     "title":"Title Hello",
     "item_list":i_list[p_range:p_range+10],
     "page":page,
