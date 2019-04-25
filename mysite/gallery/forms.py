@@ -1,0 +1,13 @@
+from django import forms
+from django.core.validators import validate_slug
+
+def must_be_caps(value):
+    if not value.isupper():
+        raise forms.ValidationError("Need to be all uppercase")
+
+    return value
+
+class ImageForm(forms.Form):
+    class Meta:
+        # model= forms.Image
+        fields= ["name", "imagefile"]

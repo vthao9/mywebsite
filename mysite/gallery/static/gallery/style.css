@@ -1,0 +1,16 @@
+body{
+  background: white url("images/bgbg.jpg")
+}
+
+.navbar{
+  border-radius: 0;
+}
+
+.navbar-brand{
+  font-family: 'Indie+Flower'; cursive;
+}
+
+.vcenter {
+  margin: 0 auto;
+  background: black;
+}
