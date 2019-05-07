@@ -14,3 +14,14 @@ body{
   margin: 0 auto;
   background: black;
 }
+
+#makemiddle {
+  margin-left: auto;
+  margin-right: auto;
+  background: black;
+}
+#displayed {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -5,8 +5,8 @@
 {% if all_images %}
   <h3>All Images:</h3>
   <!-- <ul> -->
-  <div class="container text-center">
-    <div class="col-md-6">
+  <!-- <div class="container text-center"> -->
+    <div class="col-md-6 text-center" style="float:none;margin:auto;"">
       {% for image in all_images %}
       <!-- <div class="thumbnail"> -->
         <img src='{{ MEDIA_URL }}{{ image.imagefile }}' class="img-responsive img-rounded" style="width:100%">
@@ -16,7 +16,7 @@
       <!-- </div> -->
       {% endfor %}
     </div>
-  </div>
+  <!-- </div> -->
   <!-- </ul> -->
 {% else %}
   <h3>You dont have any images :(</h3>

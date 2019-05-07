@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'gallery',
     'media',
+    # 'channels',
 ]
 
 MIDDLEWARE = [

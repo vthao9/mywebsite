@@ -1,5 +1,6 @@
 from django import forms
 from django.core.validators import validate_slug
+from django.contrib.auth.models import User
 
 def must_be_caps(value):
     if not value.isupper():
@@ -7,7 +8,8 @@ def must_be_caps(value):
 
     return value
 
-class ImageForm(forms.Form):
+class UserForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput)
     class Meta:
-        # model= forms.Image
-        fields= ["name", "imagefile"]
+        model = User
+        fields = ['username', 'email', 'password']
