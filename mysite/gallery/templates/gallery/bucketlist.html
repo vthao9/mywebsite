@@ -1,0 +1,29 @@
+{% load static %}
+{% include "gallery/base.html" %}
+
+{% block content %}
+{% if all_images %}
+  <h3 style="color:grey;">Places of Interest:</h3>
+  <!-- <ul> -->
+  <!-- <div class="container text-center"> -->
+    <div class="col-md-6 text-center" style="float:none;margin:auto;"">
+      {% for image in all_images %}
+      <!-- <div class="thumbnail"> -->
+        <img src='{{ MEDIA_URL }}{{ image.imagefile }}' class="img-responsive img-rounded" style="width:100%">
+        <div class="caption">
+          <a href="{% url 'gallery:detail' image.id %}"class="btn btn-primary btn-sm" role="button">View Details</a>
+        </div>
+      <!-- </div> -->
+      {% endfor %}
+    </div>
+  <!-- </div> -->
+  <!-- </ul> -->
+{% else %}
+  <h3 style="color:grey;">You dont have any images :(</h3>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="{% static "js/myvue.js" %}"></script>
+{% endblock %}
