@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traveler's Gallery</title>
+    <!-- <link rel="stylesheet" href="{% static "css/foundation.css" %}"> -->
+    <link rel="stylesheet" href="{% static "css/app.css" %}">
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'gallery/style.css' %}"/>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand "href="/gallery/">Traveler's Gallery</a>
+        </div>
+        <div class="collapse navbar-collapse" id="topNavBar">
+          <ul class="nav navbar-nav">
+            <li class="">
+              <a href="/gallery/">
+                <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+                Photos
+              </a>
+            </li>
+            <li class="">
+              <a href="/gallery/bucket">
+                <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+                Bucketlist Places
+              </a>
+            </li>
+            <li class="">
+              <a href="/chat/">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                Chat
+              </a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="">
+              <a href="/gallery/add-bucket">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                Add Bucketlist
+              </a>
+            </li>
+            <li class="">
+              <a href="/gallery/add">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                Add Photos
+              </a>
+            </li>
+            <li class="">
+              <a href="/gallery/p-add">
+                <span class="glyphicon glyphicon-saved" aria-hidden="true"></span>
+                Claim Photos
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+    {% endblock %}
+  </body>
+</html>
