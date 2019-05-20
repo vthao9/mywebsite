@@ -26,3 +26,24 @@ class PersonUpload(models.Model):
 
     def __str__(self):
         return self.pname
+
+class Bucket(models.Model):
+    name = models.CharField(max_length=500)
+    imagefile = models.ImageField(upload_to='images/', null=True, verbose_name="")
+    description = models.CharField(max_length=500)
+
+    def get_absolute_url(self):
+        return reverse('gallery:bucketdetail', kwargs={'bucket_id': self.pk})
+
+    def __str__(self):
+        return self.name + " - " + str(self.imagefile)
+
+class BucketUpload(models.Model):
+    imgname = models.ForeignKey(Bucket, on_delete=models.CASCADE)
+    pname = models.CharField(max_length=100)
+
+    def get_absolute_url(self):
+        return reverse('gallery:bucketlist')
+
+    def __str__(self):
+        return self.pname

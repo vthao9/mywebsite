@@ -29,7 +29,7 @@ SECRET_KEY = '0#ykh0#vpfxjgloklw7j90gm4+rjh4ib-t^mi^s^rn$9g=%_lu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['35.235.87.94']
+ALLOWED_HOSTS = ['35.235.87.94', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'gallery',
     'media',
-    # 'channels',
+    'chat',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -76,7 +77,16 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
+ASGI_APPLICATION = 'mysite.routing.application'
 
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379), ('35.235.87.94', 6379), ('localhost', 6379)],
+        },
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases

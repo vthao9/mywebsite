@@ -9,6 +9,14 @@ services:
     expose:
        - 8000
     command: python /code/mysite/manage.py runserver 0.0.0.0:8000
+    links:
+      - redis:redis
+    depends_on:
+      - redis
+  redis:
+    image: redis
+    expose:
+      - 6379
 #python /code/mysite/manage.py migrate &&
   nginx:
     restart: always

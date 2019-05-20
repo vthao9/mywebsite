@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 from django.views.generic import View
-from .models import Image, PersonUpload
+from .models import Image, PersonUpload, Bucket, BucketUpload
 from . import models
 from . import views
 from .forms import UserForm
@@ -24,12 +24,34 @@ def detail(request, image_id):
     }
     return render(request, "gallery/detail.html", context)
 
+def bucketindex(request):
+    all_bucket = Bucket.objects.all()
+    context = {
+        'all_bucket': all_bucket
+    }
+    return render(request, "gallery/bucketlist.html", context)
+
+def bucketdetail(request, bucket_id):
+    bucket = get_object_or_404(Image, pk=bucket_id)
+    context = {
+        'bucket': bucket
+    }
+    return render(request, "gallery/bucketdetail.html", context)
+
 class ImageCreate(CreateView):
     model = Image
     fields = ['name', 'description', 'imagefile']
 
 class PersonUploadCreate(CreateView):
     model = PersonUpload
+    fields = ['pname', 'imgname']
+
+class BucketCreate(CreateView):
+    model = Bucket
+    fields = ['name', 'description', 'imagefile']
+
+class BucketUploadCreate(CreateView):
+    model = BucketUpload
     fields = ['pname', 'imgname']
 
 class UserFormView(View):
