@@ -14,5 +14,6 @@ urlpatterns = [
     path('p-add/', views.PersonUploadCreate.as_view(), name='p-add'),
     path('add-bucket/', views.BucketCreate.as_view(), name='add-bucket'),
     path('p-add-bucket/', views.BucketUploadCreate.as_view(), name='p-add-bucket'),
+    path('comment/', views.CommentCreate.as_view(), name='comment'),
     path('register/', views.UserFormView.as_view(), name='register'),
 ]

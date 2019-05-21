@@ -10,8 +10,12 @@
       {% for image in all_images %}
       <!-- <div class="thumbnail"> -->
         <img src='{{ MEDIA_URL }}{{ image.imagefile }}' class="img-responsive img-rounded" style="width:100%">
+        {% for person in image.comment_set.all %}
+          <li><h5 style="color:grey;">Comment by {{ person.name }}: {{ person.comment }}</h5></li>
+        {% endfor %}
         <div class="caption">
           <a href="{% url 'gallery:detail' image.id %}"class="btn btn-primary btn-sm" role="button">View Details</a>
+          <a href="/gallery/comment"class="btn btn-primary btn-sm" role="button">Add Comment</a>
         </div>
       <!-- </div> -->
       {% endfor %}

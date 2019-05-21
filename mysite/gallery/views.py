@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 from django.views.generic import View
-from .models import Image, PersonUpload, Bucket, BucketUpload
+from .models import Image, PersonUpload, Bucket, BucketUpload, Comment
 from . import models
 from . import views
 from .forms import UserForm
@@ -53,6 +53,10 @@ class BucketCreate(CreateView):
 class BucketUploadCreate(CreateView):
     model = BucketUpload
     fields = ['pname', 'imgname']
+
+class CommentCreate(CreateView):
+    model = Comment
+    fields = ['comment', 'name', 'comment_on']
 
 class UserFormView(View):
     form_class = UserForm

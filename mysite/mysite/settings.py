@@ -35,6 +35,8 @@ ALLOWED_HOSTS = ['35.235.87.94', 'localhost', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
+    'chat',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,9 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'gallery',
     'media',
-    'chat',
-    'channels',
-]
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -83,7 +83,7 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('127.0.0.1', 6379), ('35.235.87.94', 6379), ('localhost', 6379)],
+            "hosts": ['redis://localhost:6379/4', ('127.0.0.1', 6379), ('35.235.87.94', 6379), ('localhost', 6379)],
         },
     },
 }

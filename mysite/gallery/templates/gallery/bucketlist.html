@@ -9,9 +9,10 @@
     <div class="col-md-6 text-center" style="float:none;margin:auto;"">
       {% for bucket in all_bucket %}
       <!-- <div class="thumbnail"> -->
+        <h3 style="color:grey;">{{ bucket.name }}</h3>
         <img src='{{ MEDIA_URL }}{{ bucket.imagefile }}' class="img-responsive img-rounded" style="width:100%">
         <div class="caption">
-          <a href="#"class="btn btn-primary btn-sm" role="button">Add Comment</a>
+          <!-- <a href="#"class="btn btn-primary btn-sm" role="button">Add Comment</a> -->
           <!--{% url 'gallery:bucketdetail' bucket.id %}-->
         </div>
       <!-- </div> -->

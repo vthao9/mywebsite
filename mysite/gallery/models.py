@@ -27,6 +27,17 @@ class PersonUpload(models.Model):
     def __str__(self):
         return self.pname
 
+class Comment(models.Model):
+    comment = models.CharField(max_length=500)
+    name = models.CharField(max_length=100)
+    comment_on = models.ForeignKey(Image, on_delete=models.CASCADE)
+
+    def get_absolute_url(self):
+        return reverse('gallery:index')
+
+    def __str__(self):
+        return self.addcomment
+
 class Bucket(models.Model):
     name = models.CharField(max_length=500)
     imagefile = models.ImageField(upload_to='images/', null=True, verbose_name="")
